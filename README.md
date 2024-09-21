@@ -1,4 +1,4 @@
-# My-Portfoli
+# My-Portfolio
 This is a personal portfolio website built with Django and deployed on Render. It showcases my projects, skills, and contact information.
 
 ## Live Demo
