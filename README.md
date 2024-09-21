@@ -1,56 +1,76 @@
-# My Portfolio Website
-
-This is a Django-based portfolio website deployed on Render. The project showcases my work and provides a downloadable resume.
-
-## Table of Contents
-- [Features](#features)
-- [Installation](#installation)
-- [Usage](#usage)
-- [Deployment](#deployment)
-- [License](#license)
+# My-Portfoli
+This is a personal portfolio website built with Django and deployed on Render. It showcases my projects, skills, and contact information.
 
 ## Features
-- **Home Page**: Displays a portfolio overview.
-- **Resume Page**: Provides an option to download my resume.
 
-## Installation
+- **Responsive Design**: Works on all devices, from mobile to desktop.
+- **Project Showcase**: Displays a list of projects with descriptions, images, and links.
+- **Blog**: Includes a blog section where I share my thoughts and experiences.
+- **Contact Form**: Allows visitors to get in touch with me directly through the website.
+
+## Technologies Used
+
+- **Backend**: Django
+- **Frontend**: HTML, CSS, JavaScript
+- **Database**: SQLite (for development), PostgreSQL (for production)
+- **Deployment**: Render
+
+## Getting Started
+
+### Prerequisites
+
+- Python 3.x
+- Django
+- HTML
+- CSS
+- Git
+
+### Installation
 
 1. Clone the repository:
-   ```bash
-   git clone https://github.com/yourusername/myportfolio.git
-   cd myportfolio
-2. Install the required packages:
-     pip install -r requirements.txt
-3. Set up the database: Update the DATABASE_URL environment variable in your environment.
-Usage
-To run the project locally, use the following command:
-  python manage.py runserver
-Visit http://127.0.0.1:8000/ in your browser to see the portfolio website.
-Deployment
-The project is deployed on Render. Follow these steps to set up your own deployment:
+    ```bash
+    git clone https://github.com/Sharadsisodia/My-Portfolio.git
+    cd My-Portfolio
+    ```
 
-1. Sign up or log in to Render.
-2. Create a new web service and link your GitHub repository.
-3. Set the DATABASE_URL environment variable in Render's settings.
-URLs Configuration
-The URL patterns are defined in urls.py:
-from django.contrib import admin
-from django.urls import path
-from myportfolioResume import views
-from django.conf import settings
-from django.conf.urls.static import static
-from django.contrib.staticfiles.urls import staticfiles_urlpatterns
+2. Create a virtual environment and activate it:
+    ```bash
+    python -m venv venv
+    source venv/bin/activate  # On Windows use `venv\Scripts\activate`
+    ```
 
-urlpatterns = [
-    path('admin/', admin.site.urls),
-    path('', views.portfolio),
-    path('resume/', views.resume, name='resume'),
-]
+3. Install the dependencies:
+    ```bash
+    pip install -r requirements.txt
+    ```
 
-# Static and media files configuration
-urlpatterns += staticfiles_urlpatterns()
-if settings.DEBUG:
-    urlpatterns += static(settings.MEDIA_URL, document_root=settings.MEDIA_ROOT)
-License
-This project is licensed under the MIT License.
+4. Apply migrations:
+    ```bash
+    python manage.py migrate
+    ```
+
+5. Run the development server:
+    ```bash
+    python manage.py runserver
+    ```
+
+### Deployment
+
+This project is deployed on Render. To deploy your own version:
+
+1. Create a new web service on Render.
+2. Connect your GitHub repository.
+3. Set the build and start commands:
+    - **Build Command**: `pip install -r requirements.txt && python manage.py collectstatic --noinput && python manage.py migrate`
+    - **Start Command**: `gunicorn your_project_name.wsgi`
+
+4. Set up environment variables for your database and other settings.
+
+## Contributing
+
+Contributions are welcome! Please fork the repository and create a pull request.
+
+## License
+
+This project is licensed under the MIT License. See the LICENSE file for details.
 
